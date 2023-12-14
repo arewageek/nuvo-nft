@@ -5,16 +5,16 @@ const Hero = () => {
     return (
         <div className='w-full min-h-screen hero-section p-5 py-[100pt] flex space-y-10 md:space-y-0 items-center justify-around flex-wrap flex-col md:flex-row'>
             <div className='w-full md:w-2/5'>
-                <div className='text-5xl md:text-6xl mini-neon-text-blue'>
+                <div className='text-4xl md:text-6xl mini-neon-text-blue text-center md:text-left'>
                     <h2 className='font-bold my-3 md:text-6xl'>
                         Nate Hallinan's 
                     </h2>
 
-                    <h2 className='font-bold my-3 md:text-[80pt] text-black neon-text-blue'>
+                    <h2 className='font-bold my-3 text-7xl md:text-[80pt] text-black neon-text-blue'>
                         Genesis
                     </h2>
 
-                    <h2 className='font-bold my-3 md:text-[80pt] text-black neon-text-blue'>
+                    <h2 className='font-bold my-3 text-7xl md:text-[80pt] text-black neon-text-blue'>
                         NFT
                     </h2>
 
