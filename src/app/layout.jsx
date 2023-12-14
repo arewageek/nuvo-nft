@@ -1,5 +1,5 @@
 import './globals.css'
-import Navbar from './components/Navbar'
+import Navbar from '../components/Navbar'
 
 export const metadata = {
   title: 'Nuvo',
@@ -12,7 +12,7 @@ export default function RootLayout({ children }) {
       {/* <link rel="preconnect" href="https://fonts.googleapis.com" />
       <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
       <link href="https://fonts.googleapis.com/css2?family=Courgette&family=Rock+Salt&display=swap" rel="stylesheet" /> */}
-      <body>
+      <body className='bg-black'>
         <Navbar />
         {children}
       </body>

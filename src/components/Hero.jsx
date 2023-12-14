@@ -1,5 +1,6 @@
 import React from 'react'
 import NFTCards from './NFTCards'
+import Count from './Count'
 
 const Hero = () => {
     return (
@@ -24,30 +25,9 @@ const Hero = () => {
                 </div>
 
                 <div className='w-full mt-10 flex space-x-7 items-center text-center'>
-                    <div className='font-bold hero-counter p-2'>
-                        <div className='text-xl'>
-                            100k
-                        </div>
-                        <div className='text-blue-400 uppercase counter-text'>
-                            Owners
-                        </div>
-                    </div>
-                    <div className='font-bold hero-counter p-2'>
-                        <div className='text-xl'>
-                            100k
-                        </div>
-                        <div className='text-blue-400 uppercase counter-text'>
-                            Owners
-                        </div>
-                    </div>
-                    <div className='font-bold hero-counter p-2'>
-                        <div className='text-xl'>
-                            100k
-                        </div>
-                        <div className='text-blue-400 uppercase counter-text'>
-                            Owners
-                        </div>
-                    </div>
+                    <Count suffix={'k'} label={'Owners'} number={32} />
+                    <Count suffix={''} label={'Arts'} number={3333} />
+                    <Count suffix={'B'} label={'Tokens'} number={230} />
                 </div>
 
                 
