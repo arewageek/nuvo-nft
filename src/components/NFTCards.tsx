@@ -1,6 +1,6 @@
 import React from 'react'
 
-const NFTCards = ({ children }) => {
+const NFTCards: React.FC = () => {
     return (
         <div className='relative h-full z-0 w-full max-w-screen mx-auto hero-nft-card'>
             <div className='md:w-[250pt] w-[150pt] md:h-auto p-3 md:p-5 bg-white/80 backdrop-blur-sm shadow-lg shadow-blue-300/30 rounded-xl py-4'>

@@ -1,6 +1,7 @@
+import React from 'react'
 import Link from 'next/link'
 
-const Navbar = () => {
+const Navbar: React.FC = () => {
     return (
         <div className='w-full py-4 bg-blue-200/20 px-5 flex items-center md:justify-around justify-between fixed top-0 left-0 backdrop-blur-sm'>
             <div className='font-bold text-2xl cursor-pointer text-blue-400 font-rocksalt'>

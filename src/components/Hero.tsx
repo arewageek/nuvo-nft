@@ -2,7 +2,7 @@ import React from 'react'
 import NFTCards from './NFTCards'
 import Count from './Count'
 
-const Hero = () => {
+const Hero: React.FC = () => {
     return (
         <div className='w-full min-h-screen hero-section p-5 py-[100pt] flex space-y-10 md:space-y-0 items-center justify-around flex-wrap flex-col md:flex-row'>
             <div className='w-full md:w-2/5'>

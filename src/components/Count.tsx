@@ -1,7 +1,13 @@
 'use client'
 import CountUp from 'react-countup'
 
-const Count = ({ number, suffix, label }) => {
+interface CountProps {
+  number: number;
+  suffix: string;
+  label: string;
+}
+
+const Count: React.FC<CountProps> = ({ number, suffix, label }) => {
     return (
         <div className='font-bold hero-counter p-2'>
             <div className='text-xl'>

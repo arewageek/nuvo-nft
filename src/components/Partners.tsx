@@ -1,6 +1,11 @@
 import React from 'react'
 
-const sponsors = [
+interface Sponsor {
+    logo: string;
+    title: string;
+}
+
+const sponsors: Sponsor[] = [
     {
         logo: 'https://upload.wikimedia.org/wikipedia/commons/thumb/e/e8/Binance_Logo.svg/2048px-Binance_Logo.svg.png',
         title: 'Binance'
@@ -11,7 +16,7 @@ const sponsors = [
     }
 ]
 
-export const Partners = () => {
+export const Partners: React.FC = () => {
     return (
         <div className='w-full px-7 py-7 bg-gray-700/30 flex flex-wrap space-x-3 md:space-x-5 justify-center shadow-lg'>
             {

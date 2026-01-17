@@ -6,7 +6,11 @@ export const metadata = {
   description: 'Nuvo NFT Project',
 }
 
-export default function RootLayout({ children }) {
+export default function RootLayout({
+  children,
+}: {
+  children: React.ReactNode
+}) {
   return (
     <html lang="en">
       {/* <link rel="preconnect" href="https://fonts.googleapis.com" />
