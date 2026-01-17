@@ -1,9 +1,14 @@
+import type { Metadata } from 'next'
+import { Syne, Space_Grotesk } from 'next/font/google'
 import './globals.css'
 import Navbar from '../components/Navbar'
 
-export const metadata = {
-  title: 'Nuvo',
-  description: 'Nuvo NFT Project',
+const syne = Syne({ subsets: ['latin'], variable: '--font-syne' })
+const spaceGrotesk = Space_Grotesk({ subsets: ['latin'], variable: '--font-space' })
+
+export const metadata: Metadata = {
+  title: 'NUVO | Digital Renaissance',
+  description: 'A curated collection of digital artifacts.',
 }
 
 export default function RootLayout({
@@ -12,11 +17,8 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <html lang="en">
-      {/* <link rel="preconnect" href="https://fonts.googleapis.com" />
-      <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-      <link href="https://fonts.googleapis.com/css2?family=Courgette&family=Rock+Salt&display=swap" rel="stylesheet" /> */}
-      <body className='bg-black'>
+    <html lang="en" className={`${syne.variable} ${spaceGrotesk.variable}`}>
+      <body className="bg-void text-platinum antialiased font-body overflow-x-hidden selection:bg-accent selection:text-black">
         <Navbar />
         {children}
       </body>

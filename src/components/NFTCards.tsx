@@ -1,125 +1,54 @@
+'use client'
 import React from 'react'
+import Image from 'next/image'
+import { motion } from 'framer-motion'
+import { Gem } from 'lucide-react'
+
+const cards = [
+    { id: 1, title: 'ARTIFACT_01', price: '2.5', image: '/nft-art.png', rotate: -6, z: 10 },
+    { id: 2, title: 'ARTIFACT_02', price: '4.2', image: '/nft-art.png', rotate: 6, z: 20 },
+    { id: 3, title: 'ARTIFACT_00', price: '8.0', image: '/nft-art.png', rotate: 0, z: 30 },
+]
 
 const NFTCards: React.FC = () => {
     return (
-        <div className='relative h-full z-0 w-full max-w-screen mx-auto hero-nft-card'>
-            <div className='md:w-[250pt] w-[150pt] md:h-auto p-3 md:p-5 bg-white/80 backdrop-blur-sm shadow-lg shadow-blue-300/30 rounded-xl py-4'>
-                <div className='md:h-[250pt] h-[150pt] shadow-2xl bg-[url(https://mint.smurfcat.eth.limo/static/media/2.d42ac489.jpeg)] bg-cover bg-center rounded-lg'>
+        <div className="relative w-[320px] h-[450px]">
+            {cards.map((card, i) => (
+                <motion.div
+                    key={card.id}
+                    initial={{ rotate: 0, y: 100, opacity: 0 }}
+                    animate={{ rotate: card.rotate, y: 0, opacity: 1 }}
+                    transition={{ delay: 0.5 + i * 0.2, duration: 1, type: "spring" }}
+                    whileHover={{ scale: 1.05, rotate: 0, zIndex: 50 }}
+                    drag
+                    dragConstraints={{ left: 0, right: 0, top: 0, bottom: 0 }}
+                    className="absolute inset-0 glass-panel lg:hover:scale-105 transition-transform duration-500"
+                    style={{ zIndex: card.z }}
+                >
+                    <div className="relative w-full h-[75%] bg-black overflow-hidden group-hover:shadow-[0_0_50px_rgba(0,240,255,0.6)] transition-all duration-500 border-b border-white/10">
+                        <Image 
+                            src={card.image} 
+                            alt={card.title} 
+                            fill 
+                            className="object-cover transition-transform duration-700 hover:scale-110" 
+                        />
+                        <div className="absolute top-2 right-2 bg-black/60 backdrop-blur-md text-white font-bold font-display tracking-widest text-xs px-3 py-1 border border-white/20">
+                            GEN_1
+                        </div>
+                    </div>
                     
-                </div>
-                <div className='md:mt-4 mt-2 bg-white/80 rounded-lg px-3 py-2 md:py-5 text-gray-950'>
-                    <div className='flex justify-between flex-col md:flex-row items-center'>
-                        <h4 className='font-bold text-lg'>
-                            Real Smurf Cat
-                        </h4>
-                        <div className='font-bold text-xs'>
-                            <div className='px-3 py-2 rounded bg-black text-blue-400 shadow-xl'>
-                                0.01 ETH
-                            </div>
+                    <div className="mt-4 flex justify-between items-end font-body">
+                        <div>
+                            <h3 className="text-lg font-bold uppercase tracking-wide">{card.title}</h3>
+                            <p className="text-xs text-dim">Nuvo Genesis</p>
+                        </div>
+                        <div className="flex items-center gap-1">
+                            <Gem className="w-4 h-4 text-accent" />
+                            <span className="font-bold">{card.price} ETH</span>
                         </div>
                     </div>
-                    <div className='md:mt-4 mt-2 text-gray-700'>
-                        <p className='text-xs text-justify hidden md:block'>
-                            Lorem ipsum dolor sit, amet consectetur adipisicing elit. Nam beatae fuga, itaque eius perferendis quasi repudiandae minus cupiditate, architecto porro deleniti quos similique esse molestias! Sed quibusdam vero sit aspernatur.
-                        </p>
-                    </div>
-                </div>
-            </div>
-
-
-            <div className='md:rotate-[20deg] rotate-[10deg] blur-[1.6px] -z-10 -translate-x-10 md:translate-x-10 scale-90 absolute top-0 left-20 md:w-[250pt] w-[150pt] md:h-auto p-3 md:p-5 bg-white/80 backdrop-blur-sm shadow-lg shadow-blue-300/30 rounded-xl py-4'>
-                <div className='md:h-[250pt] h-[150pt] shadow-2xl bg-[url(https://mint.smurfcat.eth.limo/static/media/1.c54d682e.jpeg)] bg-cover bg-center rounded-lg'>
-                    
-                </div>
-                <div className=' md:mt-4 mt-2 bg-white/80 rounded-lg px-3 py-2 md:py-5 text-gray-950'>
-                    <div className='flex justify-between flex-col md:flex-row items-center'>
-                        <h4 className='font-bold text-lg'>
-                            Real Smurf Cat
-                        </h4>
-                        <div className='font-bold text-xs'>
-                            <div className='px-3 py-2 rounded bg-black text-blue-400 shadow-xl'>
-                                0.01 ETH
-                            </div>
-                        </div>
-                    </div>
-                    <div className='md:mt-4 mt-2 text-gray-700'>
-                        <p className='text-xs text-justify hidden md:block'>
-                            Lorem ipsum, dolor sit amet consectetur adipisicing elit. Cupiditate natus neque eius consequuntur velit tempore laborum ullam reiciendis, quidem quam reprehenderit nobis earum nostrum tenetur dolorem amet pariatur voluptate voluptas?
-                        </p>
-                    </div>
-                </div>
-            </div>
-
-
-            <div className='rotate-[-20deg] md:rotate-[-25deg] blur-[1.6px] -z-10 -translate-x-28 md:-translate-x-44 scale-90 absolute top-0 left-20 md:w-[250pt] w-[150pt] md:h-auto p-3 md:p-5 bg-white/80 backdrop-blur-sm shadow-lg shadow-blue-300/30 rounded-xl py-4'>
-                <div className='md:h-[250pt] h-[150pt] shadow-2xl bg-[url(https://mint.smurfcat.eth.limo/static/media/4.4a9657a1.jpeg)] bg-cover bg-center rounded-lg'>
-                        
-                </div>
-                <div className='md:mt-4 mt-2 bg-white/80 rounded-lg px-3 py-2 md:py-5 text-gray-950'>
-                    <div className='flex justify-between flex-col md:flex-row items-center'>
-                        <h4 className='font-bold text-lg'>
-                            Real Smurf Cat
-                        </h4>
-                        <div className='font-bold text-xs'>
-                            <div className='px-3 py-2 rounded bg-black text-blue-400 shadow-xl'>
-                                0.01 ETH
-                            </div>
-                        </div>
-                    </div>
-                    <div className='md:mt-4 mt-2 text-gray-700'>
-                        <p className='text-xs text-justify hidden md:block'>
-                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Quam, sed mollitia adipisci quas consequatur at laudantium odio ullam est optio dolore, ad voluptates dolorum maiores deserunt reprehenderit repellat, nam quae.
-                        </p>
-                    </div>
-                </div>
-            </div>
-
-            <div className='rotate-[45deg] blur-[1.6px] -z-20 translate-x-32 hidden md:block scale-75 absolute top-0 left-20 md:w-[250pt] w-[150pt] md:h-auto p-3 md:p-5 bg-white/80 backdrop-blur-sm shadow-lg shadow-blue-300/30 rounded-xl py-4'>
-                <div className='h-[250pt] shadow-2xl bg-[url(https://mint.smurfcat.eth.limo/static/media/5.0a6ae3c2.jpeg)] bg-cover bg-center rounded-lg'>
-                    
-                </div>
-                <div className=' md:mt-4 mt-2 bg-white/80 rounded-lg px-3 py-2 md:py-5 text-gray-950'>
-                    <div className='flex justify-between flex-col md:flex-row items-center'>
-                        <h4 className='font-bold text-lg'>
-                            Real Smurf Cat
-                        </h4>
-                        <div className='font-bold text-xs'>
-                            <div className='px-3 py-2 rounded bg-black text-blue-400 shadow-xl'>
-                                0.01 ETH
-                            </div>
-                        </div>
-                    </div>
-                    <div className='md:mt-4 mt-2 text-gray-700'>
-                        <p className='text-xs text-justify hidden md:block'>
-                            Lorem ipsum, dolor sit amet consectetur adipisicing elit. Cupiditate natus neque eius consequuntur velit tempore laborum ullam reiciendis, quidem quam reprehenderit nobis earum nostrum tenetur dolorem amet pariatur voluptate voluptas?
-                        </p>
-                    </div>
-                </div>
-            </div>
-
-
-            <div className='rotate-[-48deg] blur-[1.6px] -z-20 -translate-x-72 hidden md:block scale-75 absolute top-0 left-20 md:w-[250pt] w-[150pt] md:h-auto p-3 md:p-5 bg-white/80 backdrop-blur-sm shadow-lg shadow-blue-300/30 rounded-xl py-4'>
-                <div className='h-[250pt] shadow-2xl bg-[url(https://mint.smurfcat.eth.limo/static/media/5.0a6ae3c2.jpeg)] bg-cover bg-center rounded-lg'>
-                        
-                </div>
-                <div className='md:mt-4 mt-2 bg-white/80 rounded-lg px-3 py-2 md:py-5 text-gray-950'>
-                    <div className='flex justify-between flex-col md:flex-row items-center'>
-                        <h4 className='font-bold text-lg'>
-                            Real Smurf Cat
-                        </h4>
-                        <div className='font-bold text-xs'>
-                            <div className='px-3 py-2 rounded bg-black text-blue-400 shadow-xl'>
-                                0.01 ETH
-                            </div>
-                        </div>
-                    </div>
-                    <div className='md:mt-4 mt-2 text-gray-700'>
-                        <p className='text-xs text-justify hidden md:block'>
-                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Quam, sed mollitia adipisci quas consequatur at laudantium odio ullam est optio dolore, ad voluptates dolorum maiores deserunt reprehenderit repellat, nam quae.
-                        </p>
-                    </div>
-                </div>
-            </div>
+                </motion.div>
+            ))}
         </div>
     )
 }

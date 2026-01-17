@@ -1,1 +1,7 @@
-export {Partners} from './Partners'
+export { Partners } from './Partners'
+export { default as Footer } from './Footer'
+export { default as Hero } from './Hero'
+export { default as Navbar } from './Navbar'
+export { default as NFTCards } from './NFTCards'
+export { default as Trending } from './Trending'
+export { default as Mint } from './Mint'

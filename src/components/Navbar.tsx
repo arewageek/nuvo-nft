@@ -1,31 +1,61 @@
-import React from 'react'
+'use client'
+import React, { useState } from 'react'
 import Link from 'next/link'
+import { motion, AnimatePresence } from 'framer-motion'
+import { Menu, X } from 'lucide-react'
 
 const Navbar: React.FC = () => {
+    const [open, setOpen] = useState(false)
+
     return (
-        <div className='w-full py-4 bg-blue-200/20 px-5 flex items-center md:justify-around justify-between fixed top-0 left-0 backdrop-blur-sm'>
-            <div className='font-bold text-2xl cursor-pointer text-blue-400 font-rocksalt'>
-                Nuvo
+        <nav className="fixed top-0 left-0 w-full z-40 px-6 py-6 md:px-12 md:py-8 flex justify-between items-center text-platinum drop-shadow-md">
+            <Link href="/" className="font-display font-bold text-2xl tracking-tighter uppercase z-50">
+                NUVO<span className="text-accent">.</span>
+            </Link>
+
+            <div className="hidden md:flex gap-12 font-body text-sm tracking-widest uppercase">
+                {[
+                    { label: 'Collection', href: '/collection' },
+                    { label: 'Artists', href: '/artists' },
+                    { label: 'About', href: '/about' },
+                    { label: 'Journal', href: '/journal' }
+                ].map(item => (
+                    <Link key={item.label} href={item.href} className="hover:text-accent transition-colors">
+                        {item.label}
+                    </Link>
+                ))}
             </div>
 
-            <div className='hidden md:flex justify-end items-center space-x-0 md:space-x-4 text-sm font-bold'>
-                <Link href='/' className='hover:text-blue-400 transition navlink'>
-                    Home
-                </Link>
+            <button 
+                className="md:hidden z-50"
+                onClick={() => setOpen(!open)}
+            >
+                {open ? <X /> : <Menu />}
+            </button>
 
-                <Link href="/about" className='hover:text-blue-400 transition navlink'>
-                    About
-                </Link>
-            </div>
-            
-            <div>
-                <button className='rounded-full px-4 py-2 text-xs bg-blue-400 text-black border-2 border-blue-400 transition hover:text-blue-400 hover:bg-transparent font-bold'>
-                    <div>
-                        Connect Wallet
-                    </div>
-                </button>
-            </div>
-        </div>
+            <AnimatePresence>
+                {open && (
+                    <motion.div 
+                        initial={{ clipPath: "circle(0% at 100% 0)" }}
+                        animate={{ clipPath: "circle(150% at 100% 0)" }}
+                        exit={{ clipPath: "circle(0% at 100% 0)" }}
+                        transition={{ duration: 0.5, type: "tween" }}
+                        className="fixed inset-0 bg-accent text-void flex flex-col items-center justify-center gap-8 font-display text-4xl font-bold uppercase z-40"
+                    >
+                        {[
+                            { label: 'Collection', href: '/collection' },
+                            { label: 'Artists', href: '/artists' },
+                            { label: 'About', href: '/about' },
+                            { label: 'Journal', href: '/journal' }
+                        ].map(item => (
+                            <Link key={item.label} href={item.href} onClick={() => setOpen(false)}>
+                                {item.label}
+                            </Link>
+                        ))}
+                    </motion.div>
+                )}
+            </AnimatePresence>
+        </nav>
     )
 }
 

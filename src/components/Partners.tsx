@@ -1,31 +1,23 @@
+'use client'
 import React from 'react'
+import { motion } from 'framer-motion'
 
-interface Sponsor {
-    logo: string;
-    title: string;
-}
-
-const sponsors: Sponsor[] = [
-    {
-        logo: 'https://upload.wikimedia.org/wikipedia/commons/thumb/e/e8/Binance_Logo.svg/2048px-Binance_Logo.svg.png',
-        title: 'Binance'
-    },
-    {
-        logo: 'https://upload.wikimedia.org/wikipedia/commons/thumb/e/e8/Binance_Logo.svg/2048px-Binance_Logo.svg.png',
-        title: 'Coinbase'
-    }
-]
+const partners = ['BINANCE', 'COINBASE', 'ETHEREUM', 'POLYGON', 'METAMASK', 'OPENSEA', 'FOUNDATION', 'SUPERRARE']
 
 export const Partners: React.FC = () => {
     return (
-        <div className='w-full px-7 py-7 bg-gray-700/30 flex flex-wrap space-x-3 md:space-x-5 justify-center shadow-lg'>
-            {
-                sponsors.map(brand => (
-                    <div key={brand.title} className='w-16 md:w-28 h-16 md:h-28 bg-gray-700/30 p-4 md:mx-5 shadow-inner grayscale hover:grayscale-0 transition cursor-pointer rounded-3xl flex justify-center items-center'>
-                        <img src={brand.logo} alt="Binance" />
-                    </div>
-                ))
-            }
-        </div>
+        <section className="py-12 border-y border-white/5 overflow-hidden">
+            <div className="flex whitespace-nowrap">
+                <motion.div 
+                    animate={{ x: [0, -1000] }}
+                    transition={{ repeat: Infinity, duration: 20, ease: "linear" }}
+                    className="flex gap-16 font-display font-bold text-4xl md:text-6xl text-dim uppercase opacity-30 hover:opacity-100 hover:text-accent transition-all cursor-default"
+                >
+                    {[...partners, ...partners, ...partners].map((partner, i) => (
+                        <span key={i}>{partner}</span>
+                    ))}
+                </motion.div>
+            </div>
+        </section>
     )
 }

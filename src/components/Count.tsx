@@ -1,30 +1,26 @@
 'use client'
+import React from 'react'
 import CountUp from 'react-countup'
 
 interface CountProps {
-  number: number;
-  suffix: string;
-  label: string;
+    number: number;
+    suffix: string;
+    label: string;
 }
 
 const Count: React.FC<CountProps> = ({ number, suffix, label }) => {
     return (
-        <div className='font-bold hero-counter p-2'>
-            <div className='text-xl'>
+        <div className='flex flex-col items-start'>
+            <div className='text-3xl md:text-4xl font-display font-bold text-transparent bg-clip-text bg-gradient-to-r from-primary to-accent'>
                 <CountUp
                     start={0}
                     end={number}
-                    delay={1}
+                    duration={2.5}
                     suffix={suffix}
-                >
-                    { 
-                        ({ countUpRef }) => (
-                            <span ref={ countUpRef } />
-                        )
-                    }
-                </CountUp>
+                    enableScrollSpy
+                />
             </div>
-            <div className='text-blue-400 uppercase counter-text'>
+            <div className='text-sm text-gray-400 font-medium tracking-wider uppercase mt-1'>
                 {label}
             </div>
         </div>
